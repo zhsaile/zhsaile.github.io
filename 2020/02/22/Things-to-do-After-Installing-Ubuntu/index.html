@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -52,7 +52,7 @@
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T05:30:23.000Z">
-<meta property="article:modified_time" content="2020-03-23T04:22:04.798Z">
+<meta property="article:modified_time" content="2020-03-26T12:28:51.432Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 
@@ -97,12 +97,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>6k</span>
+              <span>6.8k</span>
             </span>
 
         </div>
@@ -213,159 +213,109 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> <br>
-<font face="edo sz"><a id="more"></a></font></p>
-<h2 id="Vim">Vim</h2>
-<h3 id="Update-Vim">Update Vim</h3>
-<p>Update vim to vim8:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf&#x2F;vim</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure>
-<h3 id="Install-vim-plugin-manager">Install vim plugin manager</h3>
+        <p>  <font face="edo sz"><a id="more"></a></font></p>
+<h2 id="vim">Vim</h2>
+<h3 id="update-vim">Update Vim</h3>
+<p>Update vim to vim8: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf&#x2F;vim</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install vim</span><br></pre></td></tr></table></figure></p>
+<h3 id="install-vim-plugin-manager">Install vim plugin manager</h3>
 <p>At that time the popular vim plugin manager is <code>vim-plug</code> whose github page is <a href="github.com/junegunn/vim-plug">vim-plug</a>.</p>
-<p>Adding the plugins name in <code>.vimrc</code>.<br>
-Run <code>:PlugInstall</code> to install plugins.</p>
-<p>Deleting or commenting the plugins for the plugings you want to remove<br>
-Run <code>:PlugClean</code> to remove the plugins and related folders.</p>
+<p>Adding the plugins name in <code>.vimrc</code>. Run <code>:PlugInstall</code> to install plugins.</p>
+<p>Deleting or commenting the plugins for the plugings you want to remove Run <code>:PlugClean</code> to remove the plugins and related folders.</p>
 <p>Run <code>:PlugUpdate</code> to update the plugins.</p>
-<h3 id="Install-LeaderF">Install LeaderF</h3>
+<h3 id="install-leaderf">Install LeaderF</h3>
 <p>LeaderF is an effective fuzzy finder to <em>search files</em> in vim.</p>
-<h3 id="Install-tabular-vim-markdown">Install tabular &amp; vim-markdown</h3>
+<h3 id="install-tabular-vim-markdown">Install tabular &amp; vim-markdown</h3>
 <p>Certain features like folding in the <code>vim-markdown</code> have dependency on the plugin <code>tabular</code> thus the plugin should be installed boundly. Besides, the <code>tabular</code> plugin must come <em>before</em> <code>vim-markdown</code>.</p>
-<h3 id="Install-vim-qml">Install vim-qml</h3>
+<h3 id="install-vim-qml">Install vim-qml</h3>
 <p>Support qml syntax highlight.</p>
-<h3 id="Install-autopairs">Install autopairs</h3>
-<h3 id="Install-onedark-theme">Install onedark theme</h3>
+<h3 id="install-autopairs">Install autopairs</h3>
+<h3 id="install-onedark-theme">Install onedark theme</h3>
 <h2 id="bash">bash</h2>
 <h3 id="autojump">autojump</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;wting&#x2F;autojump.git</span><br><span class="line">cd autojump</span><br><span class="line">.&#x2F;install.py</span><br></pre></td></tr></table></figure>
-<h3 id="Open-at-specified-position">Open at specified position</h3>
-<ol>
+<h3 id="open-at-specified-position">Open at specified position</h3>
+<ol type="1">
 <li>设置按下<code>ctrl alt T</code>时在特定的物理位置出现, 首先将终端放在屏幕中想要放置的位置</li>
 <li>运行<code>xwininfo</code>, 此时鼠标变成十字准星星, 点击终端窗口, 此时便会显示终端的相关信息, 记录其中的<code>-geometry</code>信息</li>
 <li>打开系统的快捷键设置, 将默认的终端快捷键设置成别的, 比如<code>ctrl shift alt T</code>, 在最后添加快捷键, command为<code>gnome-terminal --geometry=80*24--10--10</code>, 其中 geometry 即为 xwininfo 记录的位置几何信息, 将该命令的快捷键设置为 <code>ctrl alt T</code> 即可.</li>
 </ol>
-<h3 id="Completion-ignore-case">Completion ignore case</h3>
-<p>可以设置 bash 路径不全对大小写不敏感</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;inputrc</span><br><span class="line">set completion-ignore-case on</span><br></pre></td></tr></table></figure>
+<h3 id="completion-ignore-case">Completion ignore case</h3>
+<p>可以设置 bash 路径不全对大小写不敏感 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim &#x2F;etc&#x2F;inputrc</span><br><span class="line">set completion-ignore-case on</span><br></pre></td></tr></table></figure></p>
 <h3 id="cheat">cheat</h3>
-<p>cheat is an advanced bash tool of <code>man</code>, which allows youto create and view interactive cheetsheets on the command line. Git: <a href="http://github.com/cheat/cheat" target="_blank" rel="noopener">http://github.com/cheat/cheat</a></p>
+<p>cheat is an advanced bash tool of <code>man</code>, which allows youto create and view interactive cheetsheets on the command line. Git: http://github.com/cheat/cheat</p>
 <p>download the chmod the executive file of <code>cheat</code>.</p>
 <h2 id="git">git</h2>
-<h3 id="Install">Install</h3>
+<h3 id="install">Install</h3>
 <p><code>sudo apt-get install git</code></p>
-<h3 id="Setting-up-Github">Setting up Github</h3>
+<h3 id="setting-up-github">Setting up Github</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;email&quot;</span><br></pre></td></tr></table></figure>
-<p>Connecting github over SSH</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure>
-<p>This will generate a private key and public key of ssh in ~/.ssh. Then add the public key to your github page.</p>
-<p>设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-<p>后只需要在首次提交时输入 git 帐号密码.</p>
-<h2 id="Hexo">Hexo</h2>
-<h3 id="Install-nodejs-and-npm">Install nodejs and npm</h3>
+<p>Connecting github over SSH <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email&quot;</span><br></pre></td></tr></table></figure> This will generate a private key and public key of ssh in ~/.ssh. Then add the public key to your github page.</p>
+<p>设置 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure> 后只需要在首次提交时输入 git 帐号密码.</p>
+<h2 id="hexo">Hexo</h2>
+<h3 id="install-nodejs-and-npm">Install nodejs and npm</h3>
 <p>Downloading the nodejs for linux from nodejs homepage. Extract files from the package and put it where you want. The nodejs can be used after adding the path of nodejs folder to .bashrc.</p>
-<p>Set taobao as the registry of npm:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>如果浏览器开的有代理，或者是在虚拟机内，而主机又是使用代理的情况下，需要对 npm 的代理进行设置, 否则安装包的时候没有速度. 找到代理的 ip 地址和端口, 进行如下设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set proxy http:&#x2F;&#x2F;*.*.*.*:yourport</span><br><span class="line">npm config set https-proxy http:*.*.*.*:yourport</span><br></pre></td></tr></table></figure>
-<h3 id="Install-Hexo">Install Hexo</h3>
-<p>Hexo 所需的环境搭建好后就可以开心的安装 Hexo 了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h3 id="Hexo-多主机协同-迁移">Hexo 多主机协同 / 迁移</h3>
+<p>Set taobao as the registry of npm: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure> 如果浏览器开的有代理，或者是在虚拟机内，而主机又是使用代理的情况下，需要对 npm 的代理进行设置, 否则安装包的时候没有速度. 找到代理的 ip 地址和端口, 进行如下设置 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set proxy http:&#x2F;&#x2F;*.*.*.*:yourport</span><br><span class="line">npm config set https-proxy http:*.*.*.*:yourport</span><br></pre></td></tr></table></figure></p>
+<h3 id="install-hexo">Install Hexo</h3>
+<p>Hexo 所需的环境搭建好后就可以开心的安装 Hexo 了 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<h3 id="latex-support">Latex support</h3>
+<ul>
+<li>安装 pandoc, link: <a href="github.com/jgm/pandoc/releases">github</a></li>
+<li>替换 markdown 渲染器为 hexo-renderer-pandoc <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm uninstall hexo-renderer-markdown-it --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure></li>
+<li>Install hexo-math <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure></li>
+<li>Insert configuration in <code>_config.yml</code> of Hexo <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">markdown:</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    - markdown-it-sup</span><br><span class="line">    - markdown-it-sub</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    - markdown-it-emoji</span><br><span class="line">    - hexo-math</span><br></pre></td></tr></table></figure></li>
+<li>Modify the <code>_config.yml</code> of <code>Next</code> to enable the <code>mathjax</code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  per_page: true</span><br><span class="line">  cdn: &#x2F;&#x2F;cdn.bootcss.com&#x2F;mathjax&#x2F;2.7.1&#x2F;latest.js?config&#x3D;TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure></li>
+<li>Let mathjax work in every post <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># In posts:</span><br><span class="line">---</span><br><span class="line">title: Title</span><br><span class="line">date: ...</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">mathjax: true</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="hexo-多主机协同-迁移">Hexo 多主机协同 / 迁移</h3>
 <p>由于现在 github 免费提供 Private Repo 的服务, 因此可以考虑建立一个私有仓库, 将所有的本地博客文件存放在仓库中, 这样在不同的电脑中, 只要搭建了 Hexo 环境, 只需要再将 repo 从 github 拉取下来便可以实现多主机协同了.</p>
-<p>将已有的整个 Blog 目录拷贝至新主机, 如果使用有主题, 需要将主题文件夹下的 <code>.git</code> 文件夹<strong>删除</strong>, 避免向 repo 提交时出现问题.<br>
-在原始的 Blog 目录下, 与 Hexo 相关的包/以来会存储在 package.json 文件中, 在 Blog 目录下运行 <code>npm install</code> 便会自动在新环境安装依赖.</p>
-<p>建立一个新的隐私仓库 Hexo-MyBlog, 在本地 Blog 目录下初始 git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<p>在 Blog 目录创建一个<code>.gitignore</code>文件, 包含以下内容:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules&#x2F;</span><br><span class="line">public&#x2F;</span><br><span class="line">.deploy*&#x2F;</span><br></pre></td></tr></table></figure>
-<h4 id="push-到私有-repo">push 到私有 repo</h4>
+<p>将已有的整个 Blog 目录拷贝至新主机, 如果使用有主题, 需要将主题文件夹下的 <code>.git</code> 文件夹<strong>删除</strong>, 避免向 repo 提交时出现问题. 在原始的 Blog 目录下, 与 Hexo 相关的包/以来会存储在 package.json 文件中, 在 Blog 目录下运行 <code>npm install</code> 便会自动在新环境安装依赖.</p>
+<p>建立一个新的隐私仓库 Hexo-MyBlog, 在本地 Blog 目录下初始 git <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure> 在 Blog 目录创建一个<code>.gitignore</code>文件, 包含以下内容: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules&#x2F;</span><br><span class="line">public&#x2F;</span><br><span class="line">.deploy*&#x2F;</span><br></pre></td></tr></table></figure> #### push 到私有 repo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;Hexo-MyBlog</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Private Hexo Blog Files&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 <p>这样就完成了在新机子的部署和向 git 的上传, 注意在 Hexo 安装好后, 使用时不要再使用<code>hexo init</code>命令, 否则会覆盖当前的 git 环境.</p>
-<h4 id="Writting-on-the-other-computer">Writting on the other computer</h4>
-<p>在另一台主机写作时, 搭建了 node/npm/git/hexo 环境后, 将 repo 拉取到本地即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;Hexo-MyBlog</span><br><span class="line">npm install # 安装依赖</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot; Commit &quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h4 id="Hexo-repo-Update">Hexo repo Update</h4>
+<h4 id="writting-on-the-other-computer">Writting on the other computer</h4>
+<p>在另一台主机写作时, 搭建了 node/npm/git/hexo 环境后, 将 repo 拉取到本地即可 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;Hexo-MyBlog</span><br><span class="line">npm install # 安装依赖</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot; Commit &quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<h4 id="hexo-repo-update">Hexo repo Update</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all # 将 git 上所有的文件都拉取到本地</span><br><span class="line">git reset --hard origin&#x2F;master # 强制将本地内容指向刚才同步 git 云端内容</span><br></pre></td></tr></table></figure>
 <p>reset 对所拉取的文件不做任何处理, 此处不用 pull 是因为本地存在许多文件, 使用 pull 会出现版本冲突, 本地的文件都是初始化生成的, 较拉取的库里面的文件而言基本咩有用, 可以直接丢弃.</p>
-<h4 id="Make-Hexo-Support-Emoji-😄">Make Hexo Support Emoji 😄</h4>
-<p>The default markdown renderer <code>hexo-renderer-marked</code> can’t interpret the emoji. You need to choose another one.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-emoji --save</span><br></pre></td></tr></table></figure>
-<p>After installed <code>markdown-it</code>, Modify the <code>_config.yml</code> of blog as follows.<br>
-Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki" target="_blank" rel="noopener">https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</a>)</p>
-<h2 id="Google-Chrome">Google Chrome</h2>
-<h3 id="Theme">Theme</h3>
+<h4 id="make-hexo-support-emoji-smile">Make Hexo Support Emoji :smile:</h4>
+<p>The default markdown renderer <code>hexo-renderer-marked</code> can't interpret the emoji. You need to choose another one. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-emoji --save</span><br></pre></td></tr></table></figure> After installed <code>markdown-it</code>, Modify the <code>_config.yml</code> of blog as follows. Detail of <code>markdown-it</code> can be found <em>[here]</em>(https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki)</p>
+<h2 id="google-chrome">Google Chrome</h2>
+<h3 id="theme">Theme</h3>
 <ul>
 <li>Ocean Pacific</li>
 </ul>
-<h2 id="Bluetooth">Bluetooth</h2>
+<h2 id="bluetooth">Bluetooth</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:bluetooth&#x2F;bluez</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrage</span><br></pre></td></tr></table></figure>
-<p>some other commands in <code>bluetoothctl</code>:</p>
-<ul>
-<li>power on/off</li>
-<li>pair id</li>
-<li>connect id</li>
-<li>trust id</li>
-<li>disconnect id</li>
-<li>untrust id</li>
-</ul>
+<p>some other commands in <code>bluetoothctl</code>: + power on/off + pair id + connect id + trust id + disconnect id + untrust id</p>
 <h2 id="grub">grub</h2>
-<p>2020年三月双系统安装记录:</p>
-<ol>
-<li>在nvme上安装了ubuntu18.04, 然后在sata ssd上面安装了windows10 1909.</li>
-<li>启动后会直接进入windows, 并且在bios中找不到ubuntu的启动项.</li>
-<li>安装easyuefi, 检测后发现ubuntu的启动项处在隐藏状态</li>
-<li>由于没有查到如何使隐藏的启动项变为启用, 因此新建一个启动项, 选择为 ubuntu 系统, 启动文件可以在前面隐藏的那个启动项的详细信息下找到, 将新建立的启动项移动至首位</li>
-<li>重新启动, 便会直接进入ubuntu</li>
-<li>再次重启后发现bios启动项中windows的启动项又消失了, 进入ubuntu, 命令行中输入 <code>sudo update-grub</code>, 重启按<code>F12</code>, 便会看到选择系统的界面.</li>
-</ol>
+<p>2020年三月双系统安装记录: 1. 在nvme上安装了ubuntu18.04, 然后在sata ssd上面安装了windows10 1909. 2. 启动后会直接进入windows, 并且在bios中找不到ubuntu的启动项. 3. 安装easyuefi, 检测后发现ubuntu的启动项处在隐藏状态 4. 由于没有查到如何使隐藏的启动项变为启用, 因此新建一个启动项, 选择为 ubuntu 系统, 启动文件可以在前面隐藏的那个启动项的详细信息下找到, 将新建立的启动项移动至首位 5. 重新启动, 便会直接进入ubuntu 6. 再次重启后发现bios启动项中windows的启动项又消失了, 进入ubuntu, 命令行中输入 <code>sudo update-grub</code>, 重启按<code>F12</code>, 便会看到选择系统的界面.</p>
 <h2 id="samba">samba</h2>
 <p>在ios11版本苹果终于加入了文件管理系统, 不仅可以管理照片/文档, 还支持其它云存储软件比如Google Drive, OneDrive, Dropbox等. 另外还支持通过samba协议连接其他设备, 实现与其他设备的文件共享, 从此远离数据线, 远离wechat. 由于使用的是局域网传输, 因此传输速度非常高.</p>
-<h3 id="Windows">Windows</h3>
+<h3 id="windows">Windows</h3>
 <ul>
-<li>任意位置建立一个共享文件夹share, 右键–&gt;属性</li>
-<li>点击共享 --&gt; 高级共享 --&gt; 勾选共享此文件夹✔️</li>
-<li>点击权限, Everyone的权限全部勾选允许✔️, 点击确定</li>
+<li>任意位置建立一个共享文件夹share, 右键--&gt;属性</li>
+<li>点击共享 --&gt; 高级共享 --&gt; 勾选共享此文件夹:heavy_check_mark:</li>
+<li>点击权限, Everyone的权限全部勾选允许:heavy_check_mark:, 点击确定</li>
 <li>回到共享标签, --&gt;共享(s), 下拉菜单选择Everyone, 点击添加, 权限改为<code>读取/写入</code>, 点击确定</li>
 <li><code>win+R</code>输入cmd打开命令行, 记录用户名user; 输入<code>ipconfig</code>, 记下电脑的ipv4地址</li>
 <li>打开ios自带的文件APP, 点击右上角三个小点, 选择连接服务器(connect to server), 服务器输入 <code>smb://ipv4地址</code>, 连接.</li>
 <li>选择注册用户, Name为电脑User用户名, 密码为微软帐号密码或者是电脑登录密码, 连接,大功告成.</li>
 </ul>
-<h3 id="Linux-Ubuntu">Linux(Ubuntu)</h3>
-<p>Linux系统需要首先安装 samba, samba-common</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install samba samba-common</span><br></pre></td></tr></table></figure>
-<p>配置 samba</p>
-<ul>
-<li>任意位置新建共享文件夹 share</li>
-<li>修改共享文件夹权限 <code>sudo chmod 777 /home/username/share</code></li>
-<li>添加samba用户 <code>sudo smbpasswd -a username</code>, 设置密码</li>
-<li>配置samba配置文件, 后续添加</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment &#x3D; share</span><br><span class="line">browseable &#x3D; yes</span><br><span class="line">path &#x3D; &#x2F;home&#x2F;user&#x2F;share</span><br><span class="line">create mask &#x3D; 0700</span><br><span class="line">directory mask &#x3D; 0700</span><br><span class="line">valid users &#x3D; username</span><br><span class="line">force user &#x3D; username</span><br><span class="line">force group &#x3D; username</span><br><span class="line">public &#x3D; yes</span><br><span class="line">available &#x3D; yes</span><br><span class="line">writable &#x3D; yes</span><br></pre></td></tr></table></figure>
-<ul>
-<li>重启samba服务 <code>sudo service smbd restart</code></li>
-<li>打开ios文件app, 右上角三个小点, 连接服务器, 输入上面设置的用户名密码, 🆗</li>
-</ul>
+<h3 id="linuxubuntu">Linux(Ubuntu)</h3>
+<p>Linux系统需要首先安装 samba, samba-common <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install samba samba-common</span><br></pre></td></tr></table></figure></p>
+<p>配置 samba + 任意位置新建共享文件夹 share + 修改共享文件夹权限 <code>sudo chmod 777 /home/username/share</code> + 添加samba用户 <code>sudo smbpasswd -a username</code>, 设置密码 + 配置samba配置文件, 后续添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">comment &#x3D; share</span><br><span class="line">browseable &#x3D; yes</span><br><span class="line">path &#x3D; &#x2F;home&#x2F;user&#x2F;share</span><br><span class="line">create mask &#x3D; 0700</span><br><span class="line">directory mask &#x3D; 0700</span><br><span class="line">valid users &#x3D; username</span><br><span class="line">force user &#x3D; username</span><br><span class="line">force group &#x3D; username</span><br><span class="line">public &#x3D; yes</span><br><span class="line">available &#x3D; yes</span><br><span class="line">writable &#x3D; yes</span><br></pre></td></tr></table></figure> + 重启samba服务 <code>sudo service smbd restart</code> + 打开ios文件app, 右上角三个小点, 连接服务器, 输入上面设置的用户名密码, :ok:</p>
 <h2 id="conda">conda</h2>
-<h3 id="Virtual-Environment">Virtual Environment</h3>
-<p>To create an environment</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name myenv</span><br></pre></td></tr></table></figure>
-<p>Verify that the new environment was installed correctly:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure>
-<p>Removing an existed environment:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env remove --name myenv</span><br></pre></td></tr></table></figure>
-<h3 id="Bash-completion">Bash completion</h3>
+<h3 id="virtual-environment">Virtual Environment</h3>
+<p>To create an environment <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name myenv</span><br></pre></td></tr></table></figure> Verify that the new environment was installed correctly: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env list</span><br></pre></td></tr></table></figure> Removing an existed environment: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda env remove --name myenv</span><br></pre></td></tr></table></figure></p>
+<h3 id="bash-completion">Bash completion</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge conda-bash-completion</span><br></pre></td></tr></table></figure>
-<p>When the <code>auto_activate_base</code> was set <code>false</code> in <code>~/.condarc</code>, you need to append something like the following</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONDA_ROOT&#x3D;~&#x2F;anaconda3   # &lt;- set to your Anaconda&#x2F;Miniconda installation directory</span><br><span class="line">if [[ -r $CONDA_ROOT&#x2F;etc&#x2F;profile.d&#x2F;bash_completion.sh ]]; then</span><br><span class="line">    source $CONDA_ROOT&#x2F;etc&#x2F;profile.d&#x2F;bash_completion.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>to your <code>~/.bashrc</code>.</p>
-<h3 id="Error">Error</h3>
+<p>When the <code>auto_activate_base</code> was set <code>false</code> in <code>~/.condarc</code>, you need to append something like the following <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONDA_ROOT&#x3D;~&#x2F;anaconda3   # &lt;- set to your Anaconda&#x2F;Miniconda installation directory</span><br><span class="line">if [[ -r $CONDA_ROOT&#x2F;etc&#x2F;profile.d&#x2F;bash_completion.sh ]]; then</span><br><span class="line">    source $CONDA_ROOT&#x2F;etc&#x2F;profile.d&#x2F;bash_completion.sh</span><br><span class="line">fi</span><br></pre></td></tr></table></figure> to your <code>~/.bashrc</code>.</p>
+<h3 id="error">Error</h3>
 <h4 id="conda-segmentation-fault">conda segmentation fault</h4>
 <p>由于网络问题导致的上次安装包没有成功, 但是留下了缓存记录, path/anaconda3/pkgs/ 下删除相应的不完整安装包就可以了.</p>
-<h2 id="PyTorch">PyTorch</h2>
-<h3 id="Install-v2">Install</h3>
-<p>Cpuonly version:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
-<p>使用<code>-c</code>的时候会从conda官方的软件源下载, 速度比较慢, 如果已经设置了国内镜像源则不需要<code>-c</code>.</p>
+<h2 id="pytorch">PyTorch</h2>
+<h3 id="install-1">Install</h3>
+<p>Cpuonly version: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision cpuonly -c pytorch</span><br></pre></td></tr></table></figure> 使用<code>-c</code>的时候会从conda官方的软件源下载, 速度比较慢, 如果已经设置了国内镜像源则不需要<code>-c</code>.</p>
 <h3 id="set-thread">set thread</h3>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.set_num_threads(n)</span><br></pre></td></tr></table></figure>
 
@@ -449,7 +399,7 @@ Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https:/
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim"><span class="nav-number">1.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-Vim"><span class="nav-number">1.1.</span> <span class="nav-text">Update Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-vim-plugin-manager"><span class="nav-number">1.2.</span> <span class="nav-text">Install vim plugin manager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-LeaderF"><span class="nav-number">1.3.</span> <span class="nav-text">Install LeaderF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-tabular-vim-markdown"><span class="nav-number">1.4.</span> <span class="nav-text">Install tabular &amp; vim-markdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-vim-qml"><span class="nav-number">1.5.</span> <span class="nav-text">Install vim-qml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-autopairs"><span class="nav-number">1.6.</span> <span class="nav-text">Install autopairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-onedark-theme"><span class="nav-number">1.7.</span> <span class="nav-text">Install onedark theme</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash"><span class="nav-number">2.</span> <span class="nav-text">bash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">2.1.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-at-specified-position"><span class="nav-number">2.2.</span> <span class="nav-text">Open at specified position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Completion-ignore-case"><span class="nav-number">2.3.</span> <span class="nav-text">Completion ignore case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cheat"><span class="nav-number">2.4.</span> <span class="nav-text">cheat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">3.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">3.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Setting-up-Github"><span class="nav-number">3.2.</span> <span class="nav-text">Setting up Github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo"><span class="nav-number">4.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-nodejs-and-npm"><span class="nav-number">4.1.</span> <span class="nav-text">Install nodejs and npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Hexo"><span class="nav-number">4.2.</span> <span class="nav-text">Install Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo-多主机协同-迁移"><span class="nav-number">4.3.</span> <span class="nav-text">Hexo 多主机协同 &#x2F; 迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#push-到私有-repo"><span class="nav-number">4.3.1.</span> <span class="nav-text">push 到私有 repo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Writting-on-the-other-computer"><span class="nav-number">4.3.2.</span> <span class="nav-text">Writting on the other computer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-repo-Update"><span class="nav-number">4.3.3.</span> <span class="nav-text">Hexo repo Update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-Hexo-Support-Emoji-😄"><span class="nav-number">4.3.4.</span> <span class="nav-text">Make Hexo Support Emoji 😄</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Chrome"><span class="nav-number">5.</span> <span class="nav-text">Google Chrome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Theme"><span class="nav-number">5.1.</span> <span class="nav-text">Theme</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bluetooth"><span class="nav-number">6.</span> <span class="nav-text">Bluetooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grub"><span class="nav-number">7.</span> <span class="nav-text">grub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#samba"><span class="nav-number">8.</span> <span class="nav-text">samba</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-number">8.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-Ubuntu"><span class="nav-number">8.2.</span> <span class="nav-text">Linux(Ubuntu)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda"><span class="nav-number">9.</span> <span class="nav-text">conda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Virtual-Environment"><span class="nav-number">9.1.</span> <span class="nav-text">Virtual Environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bash-completion"><span class="nav-number">9.2.</span> <span class="nav-text">Bash completion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error"><span class="nav-number">9.3.</span> <span class="nav-text">Error</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-segmentation-fault"><span class="nav-number">9.3.1.</span> <span class="nav-text">conda segmentation fault</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyTorch"><span class="nav-number">10.</span> <span class="nav-text">PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-v2"><span class="nav-number">10.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-thread"><span class="nav-number">10.2.</span> <span class="nav-text">set thread</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#update-vim"><span class="nav-number">1.1.</span> <span class="nav-text">Update Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-vim-plugin-manager"><span class="nav-number">1.2.</span> <span class="nav-text">Install vim plugin manager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-leaderf"><span class="nav-number">1.3.</span> <span class="nav-text">Install LeaderF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-tabular-vim-markdown"><span class="nav-number">1.4.</span> <span class="nav-text">Install tabular &amp; vim-markdown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-vim-qml"><span class="nav-number">1.5.</span> <span class="nav-text">Install vim-qml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-autopairs"><span class="nav-number">1.6.</span> <span class="nav-text">Install autopairs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-onedark-theme"><span class="nav-number">1.7.</span> <span class="nav-text">Install onedark theme</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bash"><span class="nav-number">2.</span> <span class="nav-text">bash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">2.1.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-at-specified-position"><span class="nav-number">2.2.</span> <span class="nav-text">Open at specified position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#completion-ignore-case"><span class="nav-number">2.3.</span> <span class="nav-text">Completion ignore case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cheat"><span class="nav-number">2.4.</span> <span class="nav-text">cheat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">3.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install"><span class="nav-number">3.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setting-up-github"><span class="nav-number">3.2.</span> <span class="nav-text">Setting up Github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo"><span class="nav-number">4.</span> <span class="nav-text">Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-nodejs-and-npm"><span class="nav-number">4.1.</span> <span class="nav-text">Install nodejs and npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-hexo"><span class="nav-number">4.2.</span> <span class="nav-text">Install Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latex-support"><span class="nav-number">4.3.</span> <span class="nav-text">Latex support</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-多主机协同-迁移"><span class="nav-number">4.4.</span> <span class="nav-text">Hexo 多主机协同 &#x2F; 迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#writting-on-the-other-computer"><span class="nav-number">4.4.1.</span> <span class="nav-text">Writting on the other computer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-repo-update"><span class="nav-number">4.4.2.</span> <span class="nav-text">Hexo repo Update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-hexo-support-emoji-smile"><span class="nav-number">4.4.3.</span> <span class="nav-text">Make Hexo Support Emoji :smile:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#google-chrome"><span class="nav-number">5.</span> <span class="nav-text">Google Chrome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#theme"><span class="nav-number">5.1.</span> <span class="nav-text">Theme</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bluetooth"><span class="nav-number">6.</span> <span class="nav-text">Bluetooth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grub"><span class="nav-number">7.</span> <span class="nav-text">grub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#samba"><span class="nav-number">8.</span> <span class="nav-text">samba</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows"><span class="nav-number">8.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linuxubuntu"><span class="nav-number">8.2.</span> <span class="nav-text">Linux(Ubuntu)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conda"><span class="nav-number">9.</span> <span class="nav-text">conda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#virtual-environment"><span class="nav-number">9.1.</span> <span class="nav-text">Virtual Environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash-completion"><span class="nav-number">9.2.</span> <span class="nav-text">Bash completion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#error"><span class="nav-number">9.3.</span> <span class="nav-text">Error</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-segmentation-fault"><span class="nav-number">9.3.1.</span> <span class="nav-text">conda segmentation fault</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch"><span class="nav-number">10.</span> <span class="nav-text">PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-1"><span class="nav-number">10.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-thread"><span class="nav-number">10.2.</span> <span class="nav-text">set thread</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -465,7 +415,7 @@ Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https:/
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -508,7 +458,7 @@ Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https:/
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">28k</span>
+    <span title="Symbols count total">30k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
@@ -544,7 +494,7 @@ Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https:/
 
 <script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script>
+<script src="/js/bookmark.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -564,6 +514,8 @@ Detail of <code>markdown-it</code> can be found <em>[here]</em>(<a href="https:/
 
 
 
+
+  
 
   
 

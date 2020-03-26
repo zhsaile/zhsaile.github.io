@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
@@ -99,12 +99,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +215,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <center><font face="edo sz">Animate Everything ヾ(≧ ▽ ≦)ゝ</font></center>
-<font face="edo sz"><a id="more"></a></font>
-<h2 id="Animations">Animations</h2>
+        <center>
+<font face="edo sz">Animate Everything ヾ(≧ ▽ ≦)ゝ</font>
+</center>
+<p><font face="edo sz"><a id="more"></a></font></p>
+<h2 id="animations">Animations</h2>
 <p>  Animations are applied to property changes. In QML, an animation is defined by:</p>
 <ul>
 <li>a series of <em>target properties</em> to be animated</li>
@@ -225,7 +227,7 @@
 <li>a <em>duration</em> defining the time for the property change.</li>
 </ul>
 <p>  Animations control <strong>how property changes</strong>. QML is based on <b><font color=#00b300>elements, properties, and scripting</font></b>. Every element provides dozens of properties and each property can be animated by you. Remember: <em>Animations control property changes and every element has dozens of properties at your disposal</em>.</p>
-<h3 id="Animation-Elements">Animation Elements</h3>
+<h3 id="animation-elements">Animation Elements</h3>
 <p>  Here is a list of the most prominent animations:</p>
 <ul>
 <li><code>PropertyAnimation</code> - Animates changes in property values</li>
@@ -241,7 +243,7 @@
 <li><code>SpringAnimation</code> - Allows a property to track a value in a spring-like motion</li>
 <li><code>PathAnimation</code> - Animates an item alongside a path</li>
 </ul>
-<h3 id="Applying-Animations">Applying Animations</h3>
+<h3 id="applying-animations">Applying Animations</h3>
 <p>  Animation can be applied in several ways:</p>
 <ul>
 <li><em>Animation on property</em> - runs automatically after the element is fully loaded</li>
@@ -250,10 +252,10 @@
 </ul>
 <blockquote>
 <p><code>childrenRect</code></p>
-<p>This property holds the collective position and size of the item’s children.</p>
+<p>This property holds the collective position and size of the item's children.</p>
 <p>这个属性会自动计算包含的子元素的尺寸</p>
 </blockquote>
-<h3 id="Grouped-Animations">Grouped Animations</h3>
+<h3 id="grouped-animations">Grouped Animations</h3>
 <p>  当需要使用多个动画时，可以使用 <code>SequentialAnimation</code>和<code>ParallelAnimation</code>来实现。顾名思义，<code>SequentialAnimation</code>会依次执行其包含的子动画，<code>ParallelAnimation</code>则会并行/同时执行。实现的方法如下：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="selector-tag">property</span> <span class="selector-tag">int</span> <span class="selector-tag">duration</span>: 2000</span><br><span class="line"><span class="selector-tag">Image</span> &#123;</span><br><span class="line">    <span class="attribute">id</span>: morty</span><br><span class="line">    source: <span class="string">"..."</span></span><br><span class="line">    MouseArea &#123;</span><br><span class="line">        anchors.fill: parent</span><br><span class="line">        onClicked: animation.<span class="built_in">restart</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">ParallelAnimation</span> &#123;</span><br><span class="line">    <span class="attribute">id</span>: animation</span><br><span class="line">    NumberAnimation &#123;</span><br><span class="line">        target: morty</span><br><span class="line">        property: <span class="string">"x"</span></span><br><span class="line">        to: <span class="number">200</span></span><br><span class="line">        duration: duration <span class="comment">/* (1) */</span></span><br><span class="line">        easing.type: Easing.InOutQuad</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">NumberAnimation</span> &#123;</span><br><span class="line">        <span class="attribute">target</span>: morty</span><br><span class="line">        property: <span class="string">"y"</span></span><br><span class="line">        to: <span class="number">200</span></span><br><span class="line">        duration: duration <span class="comment">/* (2) duration + 1000 */</span></span><br><span class="line">        easing.type: Easing.InOutQuad</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>在实现并行动画时发现了一个有意思的现象，如果子动画的动画时常均设置为数字或者为一个自定义的 property(此时必须保持一致)时，才会真正实现并行，如果一个动画时间为 duration, 另一个为 duration + x 时便会变成顺序发生的动画，不知道是不是 Qt 的 bug : )</p>
@@ -339,7 +341,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Animations"><span class="nav-number">1.</span> <span class="nav-text">Animations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation-Elements"><span class="nav-number">1.1.</span> <span class="nav-text">Animation Elements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Applying-Animations"><span class="nav-number">1.2.</span> <span class="nav-text">Applying Animations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grouped-Animations"><span class="nav-number">1.3.</span> <span class="nav-text">Grouped Animations</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#animations"><span class="nav-number">1.</span> <span class="nav-text">Animations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#animation-elements"><span class="nav-number">1.1.</span> <span class="nav-text">Animation Elements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#applying-animations"><span class="nav-number">1.2.</span> <span class="nav-text">Applying Animations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grouped-animations"><span class="nav-number">1.3.</span> <span class="nav-text">Grouped Animations</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -355,7 +357,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -398,7 +400,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">28k</span>
+    <span title="Symbols count total">30k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
@@ -434,7 +436,7 @@
 
 <script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script>
+<script src="/js/bookmark.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -454,6 +456,8 @@
 
 
 
+
+  
 
   
 

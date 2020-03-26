@@ -46,15 +46,21 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Saile">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/index.html">
+  <meta name="description" content="Active Function ReLU ReLU, REctified Linear Unit, is a function that implements max(0, x). ReLU is linear for all positive values, and zero for all negative values.  Softmax Softmax turns turns real v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programming PyTorch for Deep Learning">
+<meta property="og:url" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/index.html">
 <meta property="og:site_name" content="Saile">
+<meta property="og:description" content="Active Function ReLU ReLU, REctified Linear Unit, is a function that implements max(0, x). ReLU is linear for all positive values, and zero for all negative values.  Softmax Softmax turns turns real v">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
+<meta property="article:published_time" content="2020-03-26T09:05:21.000Z">
+<meta property="article:modified_time" content="2020-03-26T13:00:52.312Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/03/">
+<link rel="canonical" href="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/">
 
 
 <script id="page-configurations">
@@ -62,11 +68,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | Saile</title>
+  <title>Programming PyTorch for Deep Learning | Saile</title>
   
 
 
@@ -163,89 +169,129 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 11 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Zhang Saile">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Saile">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Programming PyTorch for Deep Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-26 17:05:21" itemprop="dateCreated datePublished" datetime="2020-03-26T17:05:21+08:00">2020-03-26</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>998</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-26T17:05:21+08:00"
-              content="2020-03-26">
-          03-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/26/Programming-PyTorch-for-Deep-Learning/" itemprop="url">
-            <span itemprop="name">Programming PyTorch for Deep Learning</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-12T12:51:20+08:00"
-              content="2020-03-12">
-          03-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/12/Words-Encountered-on-the-Internet/" itemprop="url">
-            <span itemprop="name">Words Encountered on the Internet</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-03T20:56:17+08:00"
-              content="2020-03-03">
-          03-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/03/The-Writing-of-English/" itemprop="url">
-            <span itemprop="name">The Writing of English</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <h3 id="active-function">Active Function</h3>
+<h4 id="relu">ReLU</h4>
+<p>ReLU, REctified Linear Unit, is a function that implements <em>max(0, x)</em>. ReLU is <em>linear</em> for all positive values, and zero for all negative values. <img width=400 src="/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png"></p>
+<h4 id="softmax">Softmax</h4>
+<p>Softmax turns <strong>turns real values into probabilities</strong>. The math behind it is pretty simple: given some numbers, 1. Raise <em>e</em> to the power of each of those numbers; 2. Sum up all the exponentials. This is the <em>denominator</em>; 3. Use each number's exponential as its <em>numerator</em>; 4. Probability = <em>Numerator / Denominator</em>.</p>
+<p>In formular is:</p>
+<p><span class="math display">\[s(x_i) = \frac{e^{x_i}}{\sum_{j=1}^{n}e^{x_j}}\]</span> The outputs of the <code>Softmax</code> transform are always locate in the range [0, 1] and add up to 1. Hence, they form a <strong>probability distribution</strong>.</p>
+<p>For example, in a network the outputs are the numbers -1, 0, 3, and 5. Then we can calculate the probabilities of the output:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><em>x</em></th>
+<th style="text-align: center;">Numerator(<span class="math inline">\(e^x\)</span>)</th>
+<th style="text-align: center;">Denominator(<span class="math inline">\(\sum_{j=1}^{n}e^{x_j}\)</span>)</th>
+<th style="text-align: center;">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-1</td>
+<td style="text-align: center;">0.368</td>
+<td style="text-align: center;">169.87</td>
+<td style="text-align: center;">0.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">169.87</td>
+<td style="text-align: center;">0.006</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">20.09</td>
+<td style="text-align: center;">169.87</td>
+<td style="text-align: center;">0.118</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">148.41</td>
+<td style="text-align: center;">169.87</td>
+<td style="text-align: center;">0.874</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[Denominator = e^{-1} + e^0 + e^3 + e^5 = 169.87\]</span></p>
+<h3 id="creating-a-network">Creating a Network</h3>
+<p>The layers in PyTorch is called <code>Linear</code>. Then the <code>forward()</code> method describes how data flows through the network in both training and making predictions. ##</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/12/Words-Encountered-on-the-Internet/" rel="prev" title="Words Encountered on the Internet">
+      <i class="fa fa-chevron-left"></i> Words Encountered on the Internet
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -296,6 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">2.</span> <span class="nav-text">Creating a Network</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,7 +437,7 @@
 
 <script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/bookmark.js"></script>
 
 
 
@@ -414,6 +461,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
