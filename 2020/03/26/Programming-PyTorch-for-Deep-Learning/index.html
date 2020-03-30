@@ -53,7 +53,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
 <meta property="article:published_time" content="2020-03-26T09:05:21.000Z">
-<meta property="article:modified_time" content="2020-03-29T06:19:30.803Z">
+<meta property="article:modified_time" content="2020-03-30T14:24:31.478Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>2.5k</span>
+              <span>3.3k</span>
             </span>
 
         </div>
@@ -226,12 +226,15 @@
 
       
         <p>  <a id="more"></a></p>
+<h2 id="image-classification-with-pytorch">Image Classification with PyTorch</h2>
 <h3 id="building-a-training-dataset">Building a Training Dataset</h3>
 <blockquote>
 <p>How does the view() method work in PyTorch?</p>
 </blockquote>
 <p>Say you has a tensor <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">a &#x3D; torch.arange(1,17)</span><br></pre></td></tr></table></figure> Then you can reshape a to a 4*4 tensor by <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; a.view(4, 4)</span><br></pre></td></tr></table></figure> <strong>So what is the meaning of parameter -1?</strong> When you don't know <strong>one</strong> of the tensor's dimensions you can pass -1 of the axis as the parameter. In this way, torch will automatically caculate the appropriate rows or columns it is.</p>
 <h3 id="building-validation-and-test-datasets">Building Validation and Test Datasets</h3>
+<p>All datasets in PyTorch have <code>__getitem__</code> and <code>__len__</code> methods. Certainly you can define your own datasets with those two methods implemented. <code>PyTorch</code> ships with multiple methods to convert user's different types data. When it comes to the pictures, you can use <code>torchvision.datasets.DatasetFolder(root, transform, is_valid_file)</code>.</p>
+<p>Those standard datasets can be passed to <code>torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=False)</code></p>
 <h3 id="active-function">Active Function</h3>
 <h4 id="relu">ReLU</h4>
 <p>ReLU, REctified Linear Unit, is a function that implements <em>max(0, x)</em>. ReLU is <em>linear</em> for all positive values, and zero for all negative values. <img width=400 src="/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png"></p>
@@ -319,6 +322,15 @@
 <p>There are many kinds of loss functions in PyTorch to evaluate your network's precision and determin how it should update the network to reach the desired results.</p>
 <h3 id="optimizing">Optimizing</h3>
 <p>PyTorch ships with <code>SGD</code> and other optimizers such as <code>AdaGrad</code> and <code>RMSProp</code>, as well as <code>Adam</code>.</p>
+<h3 id="training">Training</h3>
+<h3 id="predicting">Predicting</h3>
+<h2 id="convolutional-neural-network">Convolutional Neural Network</h2>
+<blockquote>
+<p>CNN最关键的作用是作为一个<strong>特征提取器</strong></p>
+</blockquote>
+<p>目标在不同的图片中发生了位置变化, 譬如平移, 选装, 这种情况下, 根据像素进行匹配便会失效了. 因此引入 patch 匹配, 寻找目标的特征(feature / filter), 进行局部匹配.</p>
+<p>每一个 feature 作用于图片卷机运算完成后会得到一个 feature map, map 中的数值代表从原始图像中提取的特征, 其中的值越接近1表示与feature的匹配越完整.</p>
+<p>最大池化保留了没一个sliding window中的最大值, 相当与保留了该区域的最佳匹配结果, 意味着不会关注具体是哪一个地方匹配了, 而关注是否存在区域匹配. 因此, CNN可以发现图像中是否存在某些特征, 而不关心特征在图像中存在的位置.</p>
 
     </div>
 
@@ -397,7 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">6.</span> <span class="nav-text">Optimizing</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-classification-with-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Image Classification with PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">1.2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">1.4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training"><span class="nav-number">1.7.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predicting"><span class="nav-number">1.8.</span> <span class="nav-text">Predicting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convolutional-neural-network"><span class="nav-number">2.</span> <span class="nav-text">Convolutional Neural Network</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
