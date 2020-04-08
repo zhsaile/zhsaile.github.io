@@ -53,7 +53,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
 <meta property="article:published_time" content="2020-03-26T09:05:21.000Z">
-<meta property="article:modified_time" content="2020-03-30T14:24:31.478Z">
+<meta property="article:modified_time" content="2020-04-08T02:20:39.937Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>3.3k</span>
+              <span>4.6k</span>
             </span>
 
         </div>
@@ -331,6 +331,19 @@
 <p>目标在不同的图片中发生了位置变化, 譬如平移, 选装, 这种情况下, 根据像素进行匹配便会失效了. 因此引入 patch 匹配, 寻找目标的特征(feature / filter), 进行局部匹配.</p>
 <p>每一个 feature 作用于图片卷机运算完成后会得到一个 feature map, map 中的数值代表从原始图像中提取的特征, 其中的值越接近1表示与feature的匹配越完整.</p>
 <p>最大池化保留了没一个sliding window中的最大值, 相当与保留了该区域的最佳匹配结果, 意味着不会关注具体是哪一个地方匹配了, 而关注是否存在区域匹配. 因此, CNN可以发现图像中是否存在某些特征, 而不关心特征在图像中存在的位置.</p>
+<h3 id="st-step-convolution">1st Step: Convolution</h3>
+<p>The two main properties of Convolutional network which can drastically reduce the number of parameters are:</p>
+<ul>
+<li>Sparse connections - not every node in the first / input layer is connected to every node in the second layer. This is contrary to the fully connected neural network.</li>
+<li>Constant filter parameters - each filter keeps constant when moving around the image. Thus each filter has a certain set of weights that are applied for each convolution operation.</li>
+</ul>
+<p>After the process of convolution, the output is passed through a <em>non-linear</em> function - generally ReLU activation function in CNN. This can provied the standard non-linear behavior that neural networks are known for.</p>
+<p>This block of convolution is often called <em>feature mapping</em>, which refers to the idea that <strong>each convolutional filter can be trained to &quot;search&quot; for a certain feature in an input image.</strong></p>
+<h3 id="nd-step-pooling">2nd Step: Pooling</h3>
+<p><strong>Pooling is another sliding window type technique</strong>. Instead of applying weights it applies a statistical function over the contents of its window. The most common type of pooling is called <em>max pooling</em>. As the name implies, the function applied is <code>max()</code>. Certainly there are other functions can be used in pooling, like <code>mean()</code> function in <em>mean pooling</em>.</p>
+<blockquote>
+<p>Why is pooling used in convolutional neural networks? The first function of pooling is <strong>down-sampling</strong>, and it can reduces the number of trainable parameters in the model. Another way of thinking about what pooling does is that it generalizes over lower level, more complex information. It can detect the digit &quot;9&quot; in various orientations.</p>
+</blockquote>
 
     </div>
 
@@ -349,7 +362,10 @@
     <a href="/2020/03/12/Words-Encountered-on-the-Internet/" rel="prev" title="Words Encountered on the Internet">
       <i class="fa fa-chevron-left"></i> Words Encountered on the Internet
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/08/Keyan/" rel="next" title="Keyan">
+      Keyan <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -409,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-classification-with-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Image Classification with PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">1.2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">1.4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training"><span class="nav-number">1.7.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predicting"><span class="nav-number">1.8.</span> <span class="nav-text">Predicting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convolutional-neural-network"><span class="nav-number">2.</span> <span class="nav-text">Convolutional Neural Network</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-classification-with-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Image Classification with PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">1.2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">1.4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training"><span class="nav-number">1.7.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predicting"><span class="nav-number">1.8.</span> <span class="nav-text">Predicting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convolutional-neural-network"><span class="nav-number">2.</span> <span class="nav-text">Convolutional Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#st-step-convolution"><span class="nav-number">2.1.</span> <span class="nav-text">1st Step: Convolution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nd-step-pooling"><span class="nav-number">2.2.</span> <span class="nav-text">2nd Step: Pooling</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -425,7 +441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -468,7 +484,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">32k</span>
+    <span title="Symbols count total">34k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
