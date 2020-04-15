@@ -53,7 +53,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
 <meta property="article:published_time" content="2020-03-26T09:05:21.000Z">
-<meta property="article:modified_time" content="2020-04-08T02:20:39.937Z">
+<meta property="article:modified_time" content="2020-04-15T08:56:09.065Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/03/26/Programming-PyTorch-for-Deep-Learning/relu.png">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>4.6k</span>
+              <span>5.4k</span>
             </span>
 
         </div>
@@ -344,6 +344,13 @@
 <blockquote>
 <p>Why is pooling used in convolutional neural networks? The first function of pooling is <strong>down-sampling</strong>, and it can reduces the number of trainable parameters in the model. Another way of thinking about what pooling does is that it generalizes over lower level, more complex information. It can detect the digit &quot;9&quot; in various orientations.</p>
 </blockquote>
+<h3 id="dropout">Dropout</h3>
+<p>过拟合是神经网络躲不开的问题, 人们为了避免这个现象也做了很多研究, 其中以多伦多大学的 Alex 所发明的 dropout 方法最为有效, 使用该方法的 AlexNet 以大幅领先的识别精度一举夺得2012年的冠军. 简单来讲, dropout 就是在每次训练过程中以一人为给定的概率 freeze 一部分神经元. 由于这些神经元不会被更新, 因此也就不会存在过拟合的问题, 从而提高神经网络的泛化能力.</p>
+<h2 id="history-of-cnn">History of CNN</h2>
+<h3 id="alexnet">AlexNet</h3>
+<p>AlexNet was the net that changed everything. AlexNet was one of the first architectures to introduce the concepts of <code>MaxPool</code> and <code>Dropout</code>, and even popularize the then less-well-known <code>ReLU</code> activation function. Also it was one of the first architectures to demonstrate that many layers were possible and efficient to train on a GPU. <em>Although it's not state of the art anymore, it remains an important milestone in deep learning history</em>.</p>
+<h3 id="inceptiongooglenet">Inception/GoogLeNet</h3>
+<p>GoogLeNet introduced the <em>Inception</em> module that addressed some of the deficiencies of AlexNet. Inception 是通过增加网络的宽度来提高网络的性能, 在每个 inception 模块中使用不同大小的卷积核, 可以理解为不同的感受野, 然后将其 concentrate 起来,丰富每层的信息. 然后使用 BN 算法(在conv后relu前)来加速网络的收敛速度.</p>
 
     </div>
 
@@ -425,7 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-classification-with-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Image Classification with PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">1.2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">1.4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training"><span class="nav-number">1.7.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predicting"><span class="nav-number">1.8.</span> <span class="nav-text">Predicting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convolutional-neural-network"><span class="nav-number">2.</span> <span class="nav-text">Convolutional Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#st-step-convolution"><span class="nav-number">2.1.</span> <span class="nav-text">1st Step: Convolution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nd-step-pooling"><span class="nav-number">2.2.</span> <span class="nav-text">2nd Step: Pooling</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-classification-with-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Image Classification with PyTorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#building-a-training-dataset"><span class="nav-number">1.1.</span> <span class="nav-text">Building a Training Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#building-validation-and-test-datasets"><span class="nav-number">1.2.</span> <span class="nav-text">Building Validation and Test Datasets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#active-function"><span class="nav-number">1.3.</span> <span class="nav-text">Active Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#relu"><span class="nav-number">1.3.1.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax"><span class="nav-number">1.3.2.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#creating-a-network"><span class="nav-number">1.4.</span> <span class="nav-text">Creating a Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loss-function"><span class="nav-number">1.5.</span> <span class="nav-text">Loss Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#optimizing"><span class="nav-number">1.6.</span> <span class="nav-text">Optimizing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training"><span class="nav-number">1.7.</span> <span class="nav-text">Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#predicting"><span class="nav-number">1.8.</span> <span class="nav-text">Predicting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convolutional-neural-network"><span class="nav-number">2.</span> <span class="nav-text">Convolutional Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#st-step-convolution"><span class="nav-number">2.1.</span> <span class="nav-text">1st Step: Convolution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nd-step-pooling"><span class="nav-number">2.2.</span> <span class="nav-text">2nd Step: Pooling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dropout"><span class="nav-number">2.3.</span> <span class="nav-text">Dropout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-of-cnn"><span class="nav-number">3.</span> <span class="nav-text">History of CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alexnet"><span class="nav-number">3.1.</span> <span class="nav-text">AlexNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inceptiongooglenet"><span class="nav-number">3.2.</span> <span class="nav-text">Inception&#x2F;GoogLeNet</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -441,7 +448,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -484,7 +491,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">34k</span>
+    <span title="Symbols count total">35k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
