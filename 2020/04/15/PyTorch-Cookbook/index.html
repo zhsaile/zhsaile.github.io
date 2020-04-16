@@ -53,10 +53,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/conv-with-diff-kernels.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/train-datasets.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png">
 <meta property="article:published_time" content="2020-04-15T12:02:35.000Z">
-<meta property="article:modified_time" content="2020-04-16T06:01:14.254Z">
+<meta property="article:modified_time" content="2020-04-16T13:56:47.542Z">
 <meta property="article:author" content="Zhang Saile">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
@@ -217,7 +218,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
 
         </div>
@@ -230,15 +231,18 @@
 
       
         <p>  <a id="more"></a></p>
-<h3 id="convolution-output-formula">Convolution Output Formula</h3>
+<h2 id="convolution-input-output">Convolution Input &amp; Output</h2>
+<h3 id="input-output">Input &amp; Output</h3>
 <p>The output dimension after a convolution operation can be caculated as the following formula</p>
 <p><span class="math display">\[n_{out} = \frac{n_{in}+2p-k}{s} + 1\]</span> while <span class="math inline">\(n_{in}\)</span> is the size of input channels of Conv, <span class="math inline">\(n_{out}\)</span> is the size of output channels, <span class="math inline">\(k\)</span> is the kernel size, <span class="math inline">\(p\)</span> is the padding size and <span class="math inline">\(s\)</span> is the stride size.</p>
 <p>The input channel is the channels of the input image. If the input is a RGB image then the input channel is 3. The number of output channels is the number of different kernels used in the Conv layer. If you would like to output 64 channels, then the output channel is 64.</p>
-<p><img width=350 src="/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png"></p>
+<p>对于 MNIST 数据集来说, 由于是灰度图像, 因此 Tensor 的 shape 为 <code>[1, h, w]</code>, 每次循环, Dataloader 向卷积层的输入 batch_size 个图像 Tensor. Since the output channels is set to 32, the output shape of the Conv layer is [batch_size, output_channels, h, w]. <img width=350 src="/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png"></p>
 <h3 id="parameters-in-the-layers">Parameters in the Layers</h3>
-<p>Every Conv2d layer defined in PyTorch has a <code>parameters</code> attribute which can be accesed by <code>layer1.parameters()</code>. It cantains two <em>parameter containing</em>: weight and bias. The number of weights is consistent with</p>
-<p><img width=350 src="/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png"></p>
-<h3 id="show-mnistdata-in-pytorch">Show MNISTData in PyTorch</h3>
+<p>Every Conv2d layer defined in PyTorch has a <code>parameters</code> attribute which can be accesed by <code>layer1.parameters()</code>. It cantains two <em>parameter containing</em>: weight and bias. Layer 的 parameter() 中包含两个 container, 一个包含了所有的权重矩阵, 数量与 out_channels, 即卷积核的个数相同, 矩阵大小为设置的 kernel_size. 另外一个则是偏置矩阵, 只有一个.</p>
+<p><img width=450 src="/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png"></p>
+<h3 id="卷积过程图片的变化">卷积过程图片的变化</h3>
+<p><img width=850 src="/2020/04/15/PyTorch-Cookbook/conv-with-diff-kernels.png"></p>
+<h2 id="show-mnistdata-in-pytorch">Show MNISTData in PyTorch</h2>
 <blockquote>
 <p>How to display the pics in MNIST Datasets?</p>
 </blockquote>
@@ -331,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#convolution-output-formula"><span class="nav-number">1.</span> <span class="nav-text">Convolution Output Formula</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameters-in-the-layers"><span class="nav-number">2.</span> <span class="nav-text">Parameters in the Layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">3.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#convolution-input-output"><span class="nav-number">1.</span> <span class="nav-text">Convolution Input &amp; Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-output"><span class="nav-number">1.1.</span> <span class="nav-text">Input &amp; Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameters-in-the-layers"><span class="nav-number">1.2.</span> <span class="nav-text">Parameters in the Layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积过程图片的变化"><span class="nav-number">1.3.</span> <span class="nav-text">卷积过程图片的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">2.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
