@@ -51,12 +51,16 @@
 <meta property="og:url" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/index.html">
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/train-datasets.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png">
 <meta property="article:published_time" content="2020-04-15T12:02:35.000Z">
-<meta property="article:modified_time" content="2020-04-15T14:11:37.297Z">
+<meta property="article:modified_time" content="2020-04-16T06:01:14.254Z">
 <meta property="article:author" content="Zhang Saile">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/04/15/PyTorch-Cookbook/">
 
@@ -213,7 +217,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>878</span>
+              <span>1.8k</span>
             </span>
 
         </div>
@@ -226,16 +230,26 @@
 
       
         <p>  <a id="more"></a></p>
+<h3 id="convolution-output-formula">Convolution Output Formula</h3>
+<p>The output dimension after a convolution operation can be caculated as the following formula</p>
+<p><span class="math display">\[n_{out} = \frac{n_{in}+2p-k}{s} + 1\]</span> while <span class="math inline">\(n_{in}\)</span> is the size of input channels of Conv, <span class="math inline">\(n_{out}\)</span> is the size of output channels, <span class="math inline">\(k\)</span> is the kernel size, <span class="math inline">\(p\)</span> is the padding size and <span class="math inline">\(s\)</span> is the stride size.</p>
+<p>The input channel is the channels of the input image. If the input is a RGB image then the input channel is 3. The number of output channels is the number of different kernels used in the Conv layer. If you would like to output 64 channels, then the output channel is 64.</p>
+<p><img width=350 src="/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png"></p>
+<h3 id="parameters-in-the-layers">Parameters in the Layers</h3>
+<p>Every Conv2d layer defined in PyTorch has a <code>parameters</code> attribute which can be accesed by <code>layer1.parameters()</code>. It cantains two <em>parameter containing</em>: weight and bias. The number of weights is consistent with</p>
+<p><img width=350 src="/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png"></p>
 <h3 id="show-mnistdata-in-pytorch">Show MNISTData in PyTorch</h3>
 <blockquote>
 <p>How to display the pics in MNIST Datasets?</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"></span><br><span class="line">dataset = torchvision.datasets.MNIST(root=DATA_PATH,</span><br><span class="line">    transform = transforms.ToTensor())</span><br><span class="line"></span><br><span class="line">x, _ = dataset[<span class="number">666</span>]</span><br><span class="line">plt.imshow(x.numpy()[<span class="number">0</span>], cmap=<span class="string">'gray'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p>If <code>x</code> is a tensor then it has a <code>.numpy()</code> method which allows return a numpy array sharing the same storage as the tensor. The cost is very cheap cause it doesn't involve copy manipulation anywhere.</p>
+<p><code>torchvision.datasets.MNIST()</code> is an internal class in PyTorch, the <code>type</code> of the dataset is <code>torchvision.datasets.mnist.MNIST</code>. <img width=350 src="/2020/04/15/PyTorch-Cookbook/train-datasets.png"></p>
 <span class="label primary">dataset[ ] returns a tuple which consists the picture and label.</span>
 <p>The picture is a Tensor in the shape of [channels, height, width]. In the case of MNIST images, we only use a single channel ([1, 28, 28]), so we just index it with 0.</p>
 <p>DataLoader is an iterator and each cyle it returns a list in the length of 2. Both two elements are tensors. The first tensor's dimension is 4 and it contains a bunch of training data in the size of batch_size. The second tensors is a sequence of the labels corresponding to the trainging data.</p>
 <p><img width=450 src="/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png"></p>
+<p>Datas in DataLoader is of size <span class="math inline">\(Bacth \times Channels \times Height \times Width.\)</span></p>
 
     </div>
 
@@ -244,6 +258,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+          </div>
 
         
 
@@ -314,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">1.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#convolution-output-formula"><span class="nav-number">1.</span> <span class="nav-text">Convolution Output Formula</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameters-in-the-layers"><span class="nav-number">2.</span> <span class="nav-text">Parameters in the Layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">3.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -333,6 +350,10 @@
           <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -373,7 +394,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">35k</span>
+    <span title="Symbols count total">36k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
@@ -409,7 +430,7 @@
 
 <script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/bookmark.js"></script>
 
 
 
@@ -433,6 +454,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
