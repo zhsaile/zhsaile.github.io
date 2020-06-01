@@ -51,17 +51,18 @@
 <meta property="og:url" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/index.html">
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/flowchart1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/conv-with-diff-kernels.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/conv-%3Erelu-%3Emaxpool2d.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/train-datasets.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png">
 <meta property="article:published_time" content="2020-04-15T12:02:35.000Z">
-<meta property="article:modified_time" content="2020-04-16T13:56:47.542Z">
+<meta property="article:modified_time" content="2020-06-01T13:04:59.037Z">
 <meta property="article:author" content="Zhang Saile">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/flowchart1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/04/15/PyTorch-Cookbook/">
 
@@ -218,7 +219,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>2k</span>
+              <span>2.4k</span>
             </span>
 
         </div>
@@ -234,14 +235,14 @@
 <h2 id="convolution-input-output">Convolution Input &amp; Output</h2>
 <h3 id="input-output">Input &amp; Output</h3>
 <p>The output dimension after a convolution operation can be caculated as the following formula</p>
-<p><span class="math display">\[n_{out} = \frac{n_{in}+2p-k}{s} + 1\]</span> while <span class="math inline">\(n_{in}\)</span> is the size of input channels of Conv, <span class="math inline">\(n_{out}\)</span> is the size of output channels, <span class="math inline">\(k\)</span> is the kernel size, <span class="math inline">\(p\)</span> is the padding size and <span class="math inline">\(s\)</span> is the stride size.</p>
-<p>The input channel is the channels of the input image. If the input is a RGB image then the input channel is 3. The number of output channels is the number of different kernels used in the Conv layer. If you would like to output 64 channels, then the output channel is 64.</p>
+<p><span class="math display">\[n_{out} = \frac{n_{in}+2p-k}{s} + 1\]</span> while <span class="math inline">\(n_{in}\)</span> is the size of input channels of Conv, <span class="math inline">\(n_{out}\)</span> is the size of output channels, <span class="math inline">\(k\)</span> is the kernel size, <span class="math inline">\(p\)</span> is the padding size and <span class="math inline">\(s\)</span> is the stride size. <img width=450 src="/2020/04/15/PyTorch-Cookbook/flowchart1.png"> The input channel is the channels of the input image. If the input is a RGB image then the input channel is 3. The number of output channels is the number of different kernels used in the Conv layer. If you would like to output 64 channels, then the output channel is 64.</p>
 <p>对于 MNIST 数据集来说, 由于是灰度图像, 因此 Tensor 的 shape 为 <code>[1, h, w]</code>, 每次循环, Dataloader 向卷积层的输入 batch_size 个图像 Tensor. Since the output channels is set to 32, the output shape of the Conv layer is [batch_size, output_channels, h, w]. <img width=350 src="/2020/04/15/PyTorch-Cookbook/output-shape-after-ConvLayer1.png"></p>
 <h3 id="parameters-in-the-layers">Parameters in the Layers</h3>
 <p>Every Conv2d layer defined in PyTorch has a <code>parameters</code> attribute which can be accesed by <code>layer1.parameters()</code>. It cantains two <em>parameter containing</em>: weight and bias. Layer 的 parameter() 中包含两个 container, 一个包含了所有的权重矩阵, 数量与 out_channels, 即卷积核的个数相同, 矩阵大小为设置的 kernel_size. 另外一个则是偏置矩阵, 只有一个.</p>
 <p><img width=450 src="/2020/04/15/PyTorch-Cookbook/inside-of-layerparameters.png"></p>
 <h3 id="卷积过程图片的变化">卷积过程图片的变化</h3>
-<p><img width=850 src="/2020/04/15/PyTorch-Cookbook/conv-with-diff-kernels.png"></p>
+<p><img width=850 src="/2020/04/15/PyTorch-Cookbook/conv->relu->maxpool2d.png"></p>
+<p>上图展示了MNIST中手写体2在一个卷积层中经历的conv-&gt;relu-&gt;maxpool2d的过程.</p>
 <h2 id="show-mnistdata-in-pytorch">Show MNISTData in PyTorch</h2>
 <blockquote>
 <p>How to display the pics in MNIST Datasets?</p>
@@ -254,6 +255,13 @@
 <p>DataLoader is an iterator and each cyle it returns a list in the length of 2. Both two elements are tensors. The first tensor's dimension is 4 and it contains a bunch of training data in the size of batch_size. The second tensors is a sequence of the labels corresponding to the trainging data.</p>
 <p><img width=450 src="/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png"></p>
 <p>Datas in DataLoader is of size <span class="math inline">\(Bacth \times Channels \times Height \times Width.\)</span></p>
+<h2 id="pytorch-basics">PyTorch Basics</h2>
+<h3 id="gradient-calculate">Gradient Calculate</h3>
+<p>So there are 3 ways to un-grad a tensor: + x.requires_grad = False + y = x.detach() + with torch.no_grad():</p>
+<p>The progress of Backpropagation is like: 1. Forward pass: Compute Loss 2. Compute local gradients 3. Backward pass: Compute <span class="math inline">\(\frac{\partial Loss}{\partial Weights}\)</span> using the Chain Rule.</p>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTcxMDc4NjgxMF19
+-->
 
     </div>
 
@@ -272,8 +280,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/08/Keyan/" rel="prev" title="Keyan">
-      <i class="fa fa-chevron-left"></i> Keyan
+    <a href="/2020/04/15/Transferm_Learning/" rel="prev" title="PyTorch Cookbook">
+      <i class="fa fa-chevron-left"></i> PyTorch Cookbook
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -335,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#convolution-input-output"><span class="nav-number">1.</span> <span class="nav-text">Convolution Input &amp; Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-output"><span class="nav-number">1.1.</span> <span class="nav-text">Input &amp; Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameters-in-the-layers"><span class="nav-number">1.2.</span> <span class="nav-text">Parameters in the Layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积过程图片的变化"><span class="nav-number">1.3.</span> <span class="nav-text">卷积过程图片的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">2.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#convolution-input-output"><span class="nav-number">1.</span> <span class="nav-text">Convolution Input &amp; Output</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-output"><span class="nav-number">1.1.</span> <span class="nav-text">Input &amp; Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameters-in-the-layers"><span class="nav-number">1.2.</span> <span class="nav-text">Parameters in the Layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积过程图片的变化"><span class="nav-number">1.3.</span> <span class="nav-text">卷积过程图片的变化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-mnistdata-in-pytorch"><span class="nav-number">2.</span> <span class="nav-text">Show MNISTData in PyTorch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pytorch-basics"><span class="nav-number">3.</span> <span class="nav-text">PyTorch Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-calculate"><span class="nav-number">3.1.</span> <span class="nav-text">Gradient Calculate</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -351,7 +359,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -398,7 +406,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">36k</span>
+    <span title="Symbols count total">37k</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
