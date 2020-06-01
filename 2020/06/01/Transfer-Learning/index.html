@@ -46,15 +46,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Saile">
-<meta property="og:url" content="http://yoursite.com/archives/2020/04/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Transfer Learning">
+<meta property="og:url" content="http://yoursite.com/2020/06/01/Transfer-Learning/index.html">
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-01T12:02:35.000Z">
+<meta property="article:modified_time" content="2020-06-01T14:47:44.079Z">
 <meta property="article:author" content="Zhang Saile">
+<meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/04/">
+<link rel="canonical" href="http://yoursite.com/2020/06/01/Transfer-Learning/">
 
 
 <script id="page-configurations">
@@ -62,11 +65,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | Saile</title>
+  <title>Transfer Learning | Saile</title>
   
 
 
@@ -173,69 +176,91 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 14 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/Transfer-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Zhang Saile">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Saile">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Transfer Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-01 20:02:35" itemprop="dateCreated datePublished" datetime="2020-06-01T20:02:35+08:00">2020-06-01</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>570</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-15T20:02:35+08:00"
-              content="2020-04-15">
-          04-15
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/04/15/PyTorch-Cookbook/" itemprop="url">
-            <span itemprop="name">PyTorch Cookbook</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-08T22:41:05+08:00"
-              content="2020-04-08">
-          04-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/04/08/Keyan/" itemprop="url">
-            <span itemprop="name">Keyan</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <p>  <a id="more"></a></p>
+<h3 id="原理">原理</h3>
+<p>当自己的图像数据集规模较小时, 可以利用已有的, 已经在大型图像数据集上训练过后的网络来对自己的数据集进行训练. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models</span><br><span class="line">transfer_model =models.ResNet50(pretrained=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure> 引入训练好的(pretrained)网络后, 需要冻结网络中的参数, 具体的做法很简单, 将参数的requires_grad设置为False即可. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name, param <span class="keyword">in</span> transfer_model.named_parameters():</span><br><span class="line">	param.requires_grad = <span class="literal">False</span></span><br></pre></td></tr></table></figure> 既然参数都被freeze了, 那么如何使已有的网络拟合自己的数据集呢, 方法是在pretrained model后面添加额外的layers, 可以是Conv layer, 也可以是Linear layer. 对于PyTorch自带的ResNet网络结构里, 最后的full-connected layers被命名为fc, 可以很方便的替换为自己的fc layer. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">transfer_model.fc = </span><br><span class="line">nn.Sequential(nn.Linear(transfer_model.fc.in_features, <span class="number">500</span>),</span><br><span class="line">nn.ReLU(),</span><br><span class="line">nn.Dropout(),</span><br><span class="line">nn.Linear(<span class="number">500</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMTg1Njk1MzhdfQ==
+-->
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/15/PyTorch-Cookbook/" rel="prev" title="PyTorch Cookbook">
+      <i class="fa fa-chevron-left"></i> PyTorch Cookbook
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -286,6 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -384,7 +410,7 @@
 
 <script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/bookmark.js"></script>
 
 
 
@@ -408,6 +434,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
 
   
 
