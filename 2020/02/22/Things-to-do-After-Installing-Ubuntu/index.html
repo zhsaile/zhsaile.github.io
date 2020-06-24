@@ -52,7 +52,7 @@
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T05:30:23.000Z">
-<meta property="article:modified_time" content="2020-06-24T06:36:13.931Z">
+<meta property="article:modified_time" content="2020-06-24T06:38:34.998Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 
@@ -342,7 +342,7 @@
 <p>首先确定自己显示器的分辨率, 比如surface pro6的分辨率为2736x1824, 然后在终端中输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cvt 2736x1824</span><br></pre></td></tr></table></figure> 将输出的内容保存至<code>/etc/profile</code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xrandr --newmode &quot;2736x1824_60.00&quot; ............</span><br><span class="line">xrandr --addmode Virtual1 &quot;2736x1824_60.00&quot;</span><br></pre></td></tr></table></figure> 重启即可</p>
 <h2 id="kite">Kite</h2>
 <h3 id="status-line-of-kite">Status line of Kite</h3>
-<p>set statusline=%&lt;%f %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%) %P set laststatus=2 &quot; always display the status line</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set statusline&#x3D;%&lt;%f\ %h%m%r%&#123;kite#statusline()&#125;%&#x3D;%-14.(%l,%c%V%)\ %P</span><br><span class="line">set laststatus&#x3D;2  &quot; always display the status line</span><br></pre></td></tr></table></figure>
 <h3 id="function-signatures">Function signatures</h3>
 <p>The <code>How others used</code> this section in the bottom half of the UI shows you common ways other programmers use the function. The <code>How others used this</code> section is hidden by default. Use the command <code>KiteShowPopularPatterns</code> to show the section, and <code>KiteHidePopularPatterns</code> to hide it.</p>
 <h3 id="view-documentation-with-copilot">View documentation with Copilot</h3>
