@@ -58,7 +58,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/train-datasets.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/PyTorch-Cookbook/element-in-DataLoader.png">
 <meta property="article:published_time" content="2020-04-15T12:02:35.000Z">
-<meta property="article:modified_time" content="2020-06-01T13:04:59.037Z">
+<meta property="article:modified_time" content="2020-06-29T07:02:31.650Z">
 <meta property="article:author" content="Zhang Saile">
 <meta property="article:tag" content="PyTorch">
 <meta name="twitter:card" content="summary">
@@ -257,8 +257,21 @@
 <p>Datas in DataLoader is of size <span class="math inline">\(Bacth \times Channels \times Height \times Width.\)</span></p>
 <h2 id="pytorch-basics">PyTorch Basics</h2>
 <h3 id="gradient-calculate">Gradient Calculate</h3>
-<p>So there are 3 ways to un-grad a tensor: + x.requires_grad = False + y = x.detach() + with torch.no_grad():</p>
-<p>The progress of Backpropagation is like: 1. Forward pass: Compute Loss 2. Compute local gradients 3. Backward pass: Compute <span class="math inline">\(\frac{\partial Loss}{\partial Weights}\)</span> using the Chain Rule.</p>
+<p>So there are 3 ways to un-grad a tensor:</p>
+<ul>
+<li>x.requires_grad = False</li>
+<li>y = x.detach()</li>
+<li>with torch.no_grad():</li>
+</ul>
+<p>The progress of Backpropagation is like:</p>
+<ol type="1">
+<li>Forward pass: Compute Loss</li>
+<li>Compute local gradients</li>
+<li>Backward pass: Compute <span class="math inline">\(\frac{\partial Loss}{\partial Weights}\)</span> using the Chain Rule.</li>
+</ol>
+<p>hello</p>
+<div class="pdf" target="/PyTorch-Cookbook/PyTorchCookbooks.pdf" height=""></div>
+<p>hello</p>
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTcxMDc4NjgxMF19
 -->
