@@ -52,7 +52,7 @@
 <meta property="og:site_name" content="Saile">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T05:30:23.000Z">
-<meta property="article:modified_time" content="2020-07-03T02:20:06.627Z">
+<meta property="article:modified_time" content="2020-07-04T03:19:31.785Z">
 <meta property="article:author" content="Zhang Saile">
 <meta name="twitter:card" content="summary">
 
@@ -211,7 +211,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>8.6k</span>
+              <span>8.7k</span>
             </span>
 
         </div>
@@ -361,7 +361,7 @@
 <p>打开网络设置后，显示 no network adapter found</p>
 <p>虚拟机的bug，导致虚拟机的网络设置直接被关掉了 解决办法 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service network-manager stop</span><br><span class="line">sudo vim &#x2F;var&#x2F;lib&#x2F;NetworkManager&#x2F;NetworkManager.state</span><br><span class="line">NetworkingEnable&#x3D;true</span><br></pre></td></tr></table></figure></p>
 <h2 id="neovim">Neovim</h2>
-<p>Neovim, 简称nvim，文件目录位于<code>~/.comfig/nvim</code>文件夹下，配置文件为<code>~/.config/nvim/init.vim</code>，所下载的插件位于<code>~/.vim/plugged/</code>文件夹下。</p>
+<p>Neovim, 简称nvim，文件目录位于<code>~/.comfig/nvim</code>文件夹下，配置文件为<code>~/.config/nvim/init.vim</code>，所下载的插件位于<code>~/.vim/plugged/</code>文件夹下。 安装Neovim： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:neovim-ppa&#x2F;stable</span><br><span class="line">sudo apt-get install neovim</span><br></pre></td></tr></table></figure></p>
 <h3 id="coc.nvim">Coc.nvim</h3>
 <p>首先需要安装nodejs&gt;=10.12 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL install-node.now.sh&#x2F;lts | bash</span><br></pre></td></tr></table></figure> 遇到权限问题的话，可以先curl到sh文件内容，然后将文件内容直接copy到本地的新建sh文件中，然后修改权限运行即可。</p>
 <p>推荐使用<code>vim-plug</code>安装<code>coc.nvim</code>，修改<code>.vimrc</code>或者<code>init.vim</code>文件</p>
@@ -370,12 +370,14 @@
 <p><code>Coc.nvim</code>为插件式管理，不同的语言补全需要安装对应的插件。对于Python，安装<code>coc-python</code>： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:CocInstall coc-python</span><br></pre></td></tr></table></figure></p>
 <p>可以通过<code>:checkhealth provider</code>来检查是否满足依赖。一般情况下，需要执行以下操作：</p>
 <ul>
-<li><code>:python.setInterpreter /home/saile/Downloads/Software/anaconda3/bin/python</code> 来明确python3的路径</li>
+<li>let g:python3_host_prog='path/to/python'</li>
 <li><code>pip install pynvim</code> 安装pynvim</li>
 <li><code>pip install -U jedi</code> 升级jedi包</li>
+<li><code>checkhealth provider</code> 检查python依赖是否完整，如果有路径问题继续执行下一步</li>
+<li><code>:python.setInterpreter /home/saile/Downloads/Software/anaconda3/bin/python</code> 来明确python3的路径</li>
 </ul>
 <h4 id="coc.nvim常用命令">Coc.nvim常用命令</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:CocInstall #安装插件</span><br><span class="line">:CocCommands #查看可用命令</span><br><span class="line">:checkhealth provider #检查依赖项目</span><br><span class="line">:python.setInterpreter #设置python路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:CocInstall #安装插件</span><br><span class="line">:CocCommand #查看可用命令</span><br><span class="line">:checkhealth provider #检查依赖项目</span><br><span class="line">:python.setInterpreter #设置python路径</span><br></pre></td></tr></table></figure>
 
     </div>
 
